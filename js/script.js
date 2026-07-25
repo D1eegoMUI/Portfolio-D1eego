@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* =========================================================
-       0. DICCIONARIO DE TRADUCCIONES (ES / EN)
-    ========================================================= */
     const translations = {
         es: {
             meta: {
@@ -262,34 +258,28 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.lang = lang;
         localStorage.setItem('portfolio-lang', lang);
 
-        // Texto de contenido
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const value = getNested(dict, el.dataset.i18n);
             if (value !== null) el.textContent = value;
         });
 
-        // Atributo alt de imágenes
         document.querySelectorAll('[data-i18n-alt]').forEach(el => {
             const value = getNested(dict, el.dataset.i18nAlt);
             if (value !== null) el.setAttribute('alt', value);
         });
 
-        // Atributo aria-label
         document.querySelectorAll('[data-i18n-aria]').forEach(el => {
             const value = getNested(dict, el.dataset.i18nAria);
             if (value !== null) el.setAttribute('aria-label', value);
         });
 
-        // Meta título y descripción
         const pageTitle = document.getElementById('pageTitle');
         const pageDescription = document.getElementById('pageDescription');
         if (pageTitle) pageTitle.textContent = dict.meta.title;
         if (pageDescription) pageDescription.setAttribute('content', dict.meta.description);
 
-        // Botón de idioma: muestra el idioma AL QUE SE CAMBIARÁ al hacer clic
         if (langToggle) langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
 
-        // Reinicia el efecto de escritura con los roles del idioma actual
         resetTypeLoop();
 
         updateStatusBarLabel();
@@ -301,9 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* =========================================================
-       1. MODO OSCURO / CLARO (persistente en localStorage)
-    ========================================================= */
     const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('portfolio-theme');
@@ -321,9 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.setAttribute('aria-pressed', next === 'light');
     });
 
-    /* =========================================================
-       2. MENÚ MÓVIL (burger)
-    ========================================================= */
     const navBurger = document.getElementById('navBurger');
     const editorTabs = document.getElementById('editorTabs');
 
@@ -336,9 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tab.addEventListener('click', () => editorTabs.classList.remove('is-open'));
     });
 
-    /* =========================================================
-       3. PESTAÑA ACTIVA + BARRA DE ESTADO SEGÚN SCROLL
-    ========================================================= */
     const tabs = document.querySelectorAll('.editor-tab');
     const sections = document.querySelectorAll('main .section');
 
@@ -354,9 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => sectionObserver.observe(section));
 
-    /* =========================================================
-       4. ANIMACIONES AL HACER SCROLL (reveal)
-    ========================================================= */
     const revealObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -368,9 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* =========================================================
-       5. EFECTO DE ESCRITURA (typing) EN EL HERO
-    ========================================================= */
     const typedEl = document.getElementById('heroTyped');
     let roleIndex = 0, charIndex = 0, deleting = false;
     let typeTimeoutId = null;
@@ -407,9 +382,6 @@ document.addEventListener('DOMContentLoaded', () => {
         typeLoop();
     }
 
-    /* =========================================================
-       6. FILTRADO DE PROYECTOS
-    ========================================================= */
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
@@ -428,9 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* =========================================================
-       7. GALERÍA DE IMÁGENES EN LAS TARJETAS DE PROYECTO
-    ========================================================= */
     document.querySelectorAll('.project-card__gallery').forEach(gallery => {
         const track = gallery.querySelector('.project-card__gallery-track');
         const images = Array.from(track.querySelectorAll('img'));
@@ -480,9 +449,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* =========================================================
-       8. VALIDACIÓN Y ENVÍO DEL FORMULARIO DE CONTACTO
-    ========================================================= */
     const form = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
@@ -531,14 +497,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* =========================================================
-       9. AÑO ACTUAL EN EL FOOTER
-    ========================================================= */
     document.getElementById('statusYear').textContent = new Date().getFullYear();
 
-    /* =========================================================
-       10. IDIOMA INICIAL
-    ========================================================= */
     applyLanguage(currentLang);
 
 });

@@ -1,6 +1,3 @@
-/* =========================================================
-   1. VARIABLES / TOKENS DE DISEÑO
-========================================================= */
 :root {
     --bg: #0B0E14;
     --surface: #131A26;
@@ -31,9 +28,6 @@
     --text-muted: #565F73;
 }
 
-/* =========================================================
-   2. RESET
-========================================================= */
 *,
 *::before,
 *::after {
@@ -87,9 +81,7 @@ button {
     }
 }
 
-/* =========================================================
-   3. UTILIDADES
-========================================================= */
+
 .text-accent {
     color: var(--accent);
 }
@@ -151,9 +143,6 @@ button {
     transform: translateY(0);
 }
 
-/* =========================================================
-   4. HEADER / TABS (firma visual)
-========================================================= */
 .editor-header {
     position: fixed;
     top: 0;
@@ -259,9 +248,6 @@ button {
     background: var(--surface-alt);
 }
 
-/* =========================================================
-   5. LAYOUT GENERAL DE SECCIONES
-========================================================= */
 main {
     padding-top: var(--header-h);
 }
@@ -282,9 +268,6 @@ main {
     margin-bottom: 2.5rem;
 }
 
-/* =========================================================
-   6. HERO
-========================================================= */
 .hero {
     min-height: calc(100vh - var(--header-h));
     display: grid;
@@ -392,9 +375,7 @@ main {
     color: #F2A65A;
 }
 
-/* =========================================================
-   7. SOBRE MÍ
-========================================================= */
+
 .about-grid {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -432,9 +413,6 @@ main {
     flex-wrap: wrap;
 }
 
-/* =========================================================
-   8. HABILIDADES
-========================================================= */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -525,9 +503,6 @@ main {
     margin-bottom: 0.6rem;
 }
 
-/* =========================================================
-   9. PROYECTOS
-========================================================= */
 .filters {
     display: flex;
     gap: 0.7rem;
@@ -615,7 +590,6 @@ main {
     text-decoration: underline;
 }
 
-/* --- Galería con scroll-snap (NO debe existir .project-card__image en tu CSS) --- */
 .project-card__gallery {
     position: relative;
     aspect-ratio: 16/10;
@@ -623,12 +597,9 @@ main {
 
 .project-card__gallery-track {
     display: flex;
-    /* clave: pone las imágenes en fila */
     height: 100%;
     overflow-x: auto;
-    /* clave: permite el scroll horizontal */
     scroll-snap-type: x mandatory;
-    /* clave: "engancha" cada imagen */
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
@@ -639,7 +610,6 @@ main {
 
 .project-card__gallery-track img {
     flex: 0 0 100%;
-    /* clave: cada imagen ocupa el 100% del ancho */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -725,9 +695,6 @@ main {
     font-weight: 600;
 }
 
-/* =========================================================
-   10. CONTACTO
-========================================================= */
 .contact-grid {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
@@ -805,9 +772,6 @@ main {
     color: var(--text-muted);
 }
 
-/* =========================================================
-   11. STATUS BAR (firma visual — pie tipo VSCode)
-========================================================= */
 .status-bar {
     position: sticky;
     bottom: 0;
@@ -820,9 +784,7 @@ main {
     padding: 0.4rem 1.5rem;
 }
 
-/* =========================================================
-   12. RESPONSIVE
-========================================================= */
+
 @media (max-width: 768px) {
     .nav-burger {
         display: flex;
@@ -860,9 +822,6 @@ main {
     }
 }
 
-/* =========================================================
-   ICONOS EN LINKS (GitHub, Demo, LinkedIn, WhatsApp, CV)
-========================================================= */
 .icon {
     width: 18px;
     height: 18px;
@@ -887,9 +846,6 @@ main {
     gap: 0.5rem;
 }
 
-/* =========================================================
-   IDIOMA (botón ES/EN) Y CONTROLES DEL HEADER
-========================================================= */
 .header-controls {
     display: flex;
     align-items: center;
@@ -912,12 +868,6 @@ main {
     color: var(--accent);
 }
 
-/* =========================================================
-   RESPONSIVE — AJUSTES ADICIONALES
-========================================================= */
-
-/* Las flechas de la galería usan :hover, que no existe en touch.
-   En móvil/tablet las dejamos siempre visibles para que se puedan tocar. */
 @media (hover: none), (max-width: 768px) {
     .project-card__gallery-arrow {
         opacity: 1;
