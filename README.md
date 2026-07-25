@@ -2,7 +2,7 @@
 
 Portafolio personal de **Diego Emilio López Gutiérrez**, estudiante de 6.º Perito en Informática en Fundación Kinal y próximo a iniciar Ingeniería en Sistemas. Aquí muestro mis proyectos, mi stack técnico y mis datos de contacto.
 
-🔗 **Sitio en vivo:** [https://portfolio-d1eego.vercel.app/assets/img/perfil.png] <!-- TODO: reemplaza por tu URL real una vez publicado -->
+🔗 **Sitio en vivo:** [https://portfolio-d1eego.vercel.app/] <!-- TODO: reemplaza por tu URL real una vez publicado -->
 
 ## ✨ Características
 
